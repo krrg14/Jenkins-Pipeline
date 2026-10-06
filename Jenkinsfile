@@ -7,6 +7,7 @@ pipeline {
     }
 
     stages {
+        
         stage('checkout') {
             steps {
                 git branch: 'main', url 'https://github.com/krrg14/Jenkins-Pipeline'
@@ -67,14 +68,14 @@ pipeline {
                 sh 'docker ps --filter name=$CONTAINER_NAME'
             }
         }
+    }
 
-        post {
-            success {
-                echo 'CI/CD pipeline completed successfully!'
-            }
-            failure {
-                echo 'CI/CD pipeline failure, Checkout the pipeline console'
-            }
+    post {
+        success {
+            echo 'CI/CD pipeline completed successfully!'
+        }
+        failure {
+            echo 'CI/CD pipeline failure, Checkout the pipeline console'
         }
     }
 }
