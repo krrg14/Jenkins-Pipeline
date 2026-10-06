@@ -57,7 +57,7 @@ pipeline {
 
                     docker run -d \
                     --name $CONTAINER_NAME \
-                    -p 3000:3000
+                    -p 3000:3000 \
                     $IMAGE_NAME:$BUILD_NUMBER
                 '''
             }
